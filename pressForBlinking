@@ -1,0 +1,18 @@
+gpio -g mode 18 output
+gpio -g mode 2 in
+a=0
+gpio -g write 18 0
+
+while [ 1 ]
+do
+b="$(gpio -g read 2)"
+if [ $b = 0 ]
+then
+	gpio -g write 18 1
+	sleep 0.9
+	gpio -g write 18 0
+	sleep 0.9
+	a=`expr $a + 1`
+fi
+echo $a
+done

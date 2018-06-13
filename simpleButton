@@ -1,0 +1,4 @@
+gpio -g mode 2 in
+gpio -g read 2
+a="$(gpio read 2 )"
+echo $a
